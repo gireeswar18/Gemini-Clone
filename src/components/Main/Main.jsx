@@ -19,8 +19,8 @@ const Main = () => {
 
   useEffect(() => {
     if (resultRef.current) {
-      // resultRef.current.scrollTop = resultRef.current.scrollHeight;
-      resultRef.current.scrollIntoView({ behavior: "smooth" });
+      resultRef.current.scrollTop = resultRef.current.scrollHeight;
+      // resultRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [resultData]);
 
@@ -116,7 +116,7 @@ const Main = () => {
             </div>
           </>
         ) : (
-          <div className="result">
+          <div className="result" ref={resultRef}>
             <div className="result-title">
               <img src={assets.user_icon} alt="" />
               <p>{recentPrompt}</p>
@@ -134,7 +134,6 @@ const Main = () => {
                 <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
               )}
             </div>
-            <div ref={resultRef}></div>
           </div>
         )}
 
