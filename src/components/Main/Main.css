@@ -191,7 +191,6 @@
 @media (max-width: 600px) {
 	.main-bottom input {
 		flex: none;
-		width: 150px;
 	}
 
 	.main-bottom img {
@@ -213,7 +212,6 @@
 	.search-box input {
 		font-size: 14px;
 		padding: 6px;
-		min-width: none;
 	}
 
 	.search-box img {
