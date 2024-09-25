@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
@@ -14,6 +14,15 @@ const Main = () => {
     input,
     finished,
   } = useContext(Context);
+
+  const resultRef = useRef(null);
+
+  useEffect(() => {
+    if (resultRef.current) {
+      // resultRef.current.scrollTop = resultRef.current.scrollHeight;
+      resultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [resultData]);
 
   const handleEnter = (e) => {
     if (input.trim().length > 0 && finished && e.key == "Enter") onSent();
@@ -125,6 +134,7 @@ const Main = () => {
                 <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
               )}
             </div>
+            <div ref={resultRef}></div>
           </div>
         )}
 
